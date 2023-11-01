@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="sk" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Pridaj nového používateľa</title>
+</head>
+<body>
+<style>
+    body {
+        background-color: #008080;
+        font-family: "Arial", sans-serif;
+        font-size: 16px;
+        text-align: center;
+        color: #FFFFFF;
+        position: relative;
+    }
+
+    h1 {
+            line-height: 85px; /* Adjust the spacing to your liking */
+        }
+
+        form {
+            text-align: center;
+        }
+
+        input {
+            display: block; /* Each input element on a new line */
+            margin: 10px auto; /* Vertical margin between elements */
+            text-align: center;
+    }
+    button {
+      background-color: #00FFFF;
+      font-family: "Arial", sans-serif;
+      font-size: 16px;
+      color: #000080;
+      padding: 15px 15px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      display: block; /* Place the button on a new line */
+      margin: 10px auto; /* Vertical margin between elements */
+    }
+
+</style>
+    <h1>Pridaj nového používateľa</h1>
+    <form method="POST" th:action="@{uloz-pouzivatela}" th:object="${pouzivatelObjektThymeleaf}">
+    Meno <input th:field="*{meno}" type ="text" style="text-align: center"/><br />
+    Priezvisko <input th:field="*{priezvisko}" type ="text" style="text-align: center" /><br />
+    Používateľské meno <input th:field="*{username}" type ="text" /><br />
+    Heslo <input th:field="*{heslo}" type ="text" style="left: -20px; text-align: center" /><br />
+    <button type="submit">Ulož registráciu</button>
+    </form>
+<a href="/" style="color: #FFFFFF; text-decoration: none; position: absolute; left: 500px; margin: 100px;">Kliknite sem pre vrátenie sa na hlavnú stránku.</a>
+</body>
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="sk" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Pridaj novú objednávku</title>
+</head>
+<body>
+<style>
+    body {
+        background-color: #008080;
+        font-family: "Arial", sans-serif;
+        font-size: 16px;
+        text-align: center;
+        color: #FFFFFF;
+        position: relative;
+    }
+
+    h1 {
+            line-height: 40px;
+        }
+
+        form {
+            text-align: center;
+        }
+
+    input {
+            display: block; /* Each input element on a new line */
+            margin: 10px auto; /* Vertical margin between elements */
+            text-align: center;
+    }
+    input[type="submit"] {
+            background-color: #00FFFF;
+            font-family: "Arial", sans-serif;
+            color: #000080;
+            font-size: 16px;
+            padding: 5px 5px; /* Adjust the padding for the submit button */
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+    button {
+      background-color: #00FFFF;
+      font-family: "Arial", sans-serif;
+      font-size: 16px;
+      color: #000080;
+      padding: 5px 5px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      display: block; /* Place the button on a new line */
+      margin: 5px auto; /* Vertical margin between elements */
+    }
+
+    select {
+        display: block; /* Each input element on a new line */
+        margin: 10px auto; /* Vertical margin between elements */
+        text-align: center;
+        line-height: 40px;
+    }
+
+</style>
+    <h1>Pridaj novú objednávku</h1>
+    <form method="POST" th:action="@{uloz-objednavku}" th:object="${objednavkaObjektThymeleaf}">
+    Popis <input th:field="*{popis}" type ="text" /><br />
+<!--    Farba <input th:field="*{farba}" type ="text" /><br />-->
+     Farba
+        <select th:field="*{farba}">
+            <option value="Červené">Červené</option>
+            <option value="Modré">Modré</option>
+            <option value="Zelené">Zelené</option>
+        </select> <br />
+    Značka <input th:field="*{znacka}" type ="text" /><br />
+<!--    Veľkosť <input th:field="*{velkost}" type ="text" /><br />-->
+    Veľkosť
+        <select th:field="*{velkost}">
+            <option value="XS">XS</option>
+            <option value="S">S</option>
+            <option value="M">M</option>
+            <option value="L">L</option>
+            <option value="XL">XL</option>
+        </select> <br />
+    Počet <input th:field="*{pocet}" type ="number" /><br />
+    Dátum objednávky <input th:field="*{datumObjednavky}" type ="date" /><br />
+    Meno zákazníka <input th:field="*{menoZakaznika}" type ="text" /><br />
+        <button type="submit">Ulož objednávku</button>
+    </form>
+    <form th:action="@{/logout}" method="post">
+    <input type="submit" value="Odhlásiť sa" />
+    </form>
+</body>
+</html>
